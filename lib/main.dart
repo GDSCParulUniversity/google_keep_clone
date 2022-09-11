@@ -12,11 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Google Keep Clone',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      debugShowCheckedModeBanner: false,
+      home: LoginScreen(),
     );
   }
 }

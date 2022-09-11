@@ -1,13 +1,10 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_keep_clone/screens/home_screen.dart';
-import 'package:google_keep_clone/screens/signup_screen.dart';
 
 import '../common/constants/colors.dart';
 import '../common/widgets/custom_text_field.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +12,18 @@ class LoginScreen extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: bgColor,
-      body: Padding(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      body: SafeArea(
+          child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: height * 0.12,
+              height: height * 0.08,
             ),
             Center(
               child: Image.asset(
@@ -30,7 +32,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: height * 0.12,
+              height: height * 0.1,
             ),
             SizedBox(
               width: width * 0.7,
@@ -45,6 +47,13 @@ class LoginScreen extends StatelessWidget {
             ),
             SizedBox(
               height: height * 0.03,
+            ),
+            CustomTextField(
+              inputController: TextEditingController(),
+              label: 'Name',
+            ),
+            SizedBox(
+              height: height * 0.02,
             ),
             CustomTextField(
               inputController: TextEditingController(),
@@ -63,54 +72,16 @@ class LoginScreen extends StatelessWidget {
             ),
             Center(
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => HomePage(),
-                    ),
-                  );
-                },
+                onPressed: () {},
                 style: TextButton.styleFrom(
                     backgroundColor: Color.fromRGBO(248, 190, 40, 1),
                     minimumSize: Size(width * 0.38, height * 0.045)),
-                child: Text('Login'),
+                child: Text('Signup'),
               ),
-            ),
-            Spacer(),
-            Center(
-              child: Text.rich(
-                TextSpan(
-                    text: 'New here? ',
-                    style: TextStyle(color: white.withOpacity(0.7)),
-                    children: [
-                      TextSpan(
-                        text: 'Sign Up ',
-                        style:
-                            TextStyle(color: Color.fromRGBO(248, 190, 40, 1)),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => SignUpScreen(),
-                              ),
-                            );
-                          },
-                      ),
-                      TextSpan(
-                        text: 'now',
-                        style: TextStyle(color: white.withOpacity(0.7)),
-                      ),
-                    ]),
-              ),
-            ),
-            SizedBox(
-              height: height * 0.02,
             ),
           ],
         ),
-      ),
+      )),
     );
   }
 }
