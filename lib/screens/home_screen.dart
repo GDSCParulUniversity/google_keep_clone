@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
+import 'package:google_keep_clone/screens/drawing_screen.dart';
 import 'package:google_keep_clone/screens/side_menu.dart';
 
 import '../common/constants/colors.dart';
@@ -238,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   children: [
                     IconButton(
-                      onPressed: null,
+                      onPressed: () {},
                       icon: Icon(
                         Icons.checklist_sharp,
                         size: 20,
@@ -246,7 +247,14 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     IconButton(
-                      onPressed: null,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => DrawingScreen(),
+                          ),
+                        );
+                      },
                       icon: Icon(
                         Icons.brush,
                         size: 18,
